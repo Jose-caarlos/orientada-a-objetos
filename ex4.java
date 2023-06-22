@@ -1,99 +1,33 @@
-public class Pessoa {
-    private String nome;
-    private int idade;
-    private Data dataNascimento;
-
-    public Pessoa(String nome, int idade, Data dataNascimento) {
-        this.nome = nome;
-        this.idade = idade;
-        this.dataNascimento = dataNascimento;
+public class ConversaoDeUnidadesDeTemperatura {
+    public static double celsiusParaFahrenheit(double celsius) {
+        return (9 * celsius / 5) + 32;
     }
 
-    public String getNome() {
-        return nome;
+    public static double fahrenheitParaCelsius(double fahrenheit) {
+        return (fahrenheit - 32) * 5 / 9;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public static double celsiusParaKelvin(double celsius) {
+        return celsius + 273.15;
     }
 
-    public int getIdade() {
-        return idade;
+    public static double kelvinParaCelsius(double kelvin) {
+        return kelvin - 273.15;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public static double celsiusParaReaumur(double celsius) {
+        return celsius * 4 / 5;
     }
 
-    public Data getDataNascimento() {
-        return dataNascimento;
+    public static double reaumurParaCelsius(double reaumur) {
+        return reaumur * 5 / 4;
     }
 
-    public void setDataNascimento(Data dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-}
-
-public class Aluno extends Pessoa {
-    private int matricula;
-    private Data dataMatricula;
-
-    public Aluno(String nome, int idade, Data dataNascimento, int matricula, Data dataMatricula) {
-        super(nome, idade, dataNascimento);
-        this.matricula = matricula;
-        this.dataMatricula = dataMatricula;
+    public static double kelvinParaRankine(double kelvin) {
+        return kelvin * 1.8;
     }
 
-    public int getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
-    }
-
-    public Data getDataMatricula() {
-        return dataMatricula;
-    }
-
-    public void setDataMatricula(Data dataMatricula) {
-        this.dataMatricula = dataMatricula;
-    }
-}
-
-public class Funcionario extends Pessoa {
-    private int codigoFuncionario;
-    private double salario;
-    private Data dataAdmissao;
-
-    public Funcionario(String nome, int idade, Data dataNascimento, int codigoFuncionario, double salario, Data dataAdmissao) {
-        super(nome, idade, dataNascimento);
-        this.codigoFuncionario = codigoFuncionario;
-        this.salario = salario;
-        this.dataAdmissao = dataAdmissao;
-    }
-
-    public int getCodigoFuncionario() {
-        return codigoFuncionario;
-    }
-
-    public void setCodigoFuncionario(int codigoFuncionario) {
-        this.codigoFuncionario = codigoFuncionario;
-    }
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
-
-    public Data getDataAdmissao() {
-        return dataAdmissao;
-    }
-
-    public void setDataAdmissao(Data dataAdmissao) {
-        this.dataAdmissao = dataAdmissao;
+    public static double rankineParaKelvin(double rankine) {
+        return rankine / 1.8;
     }
 }

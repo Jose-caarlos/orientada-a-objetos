@@ -1,134 +1,71 @@
-public class Pessoa {
+class Livro {
     private String nome;
-    private int idade;
-    private String sexo;
+    private double preco;
+    private String autor;
 
-    public Pessoa(String nome, int idade, String sexo) {
+    public Livro(String nome, double preco, String autor) {
         this.nome = nome;
-        this.idade = idade;
-        this.sexo = sexo;
+        this.preco = preco;
+        this.autor = autor;
     }
 
-    public String getNome() {
-        return nome;
+    public void imprimirDetalhes() {
+        System.out.println("Livro:");
+        System.out.println("Nome: " + nome);
+        System.out.println("Preço: R$" + preco);
+        System.out.println("Autor: " + autor);
+        System.out.println();
     }
+}
 
-    public void setNome(String nome) {
+class CD {
+    private String nome;
+    private double preco;
+    private int numeroFaixas;
+
+    public CD(String nome, double preco, int numeroFaixas) {
         this.nome = nome;
+        this.preco = preco;
+        this.numeroFaixas = numeroFaixas;
     }
 
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
-                ", idade=" + idade +
-                ", sexo='" + sexo + '\'' +
-                '}';
+    public void imprimirDetalhes() {
+        System.out.println("CD:");
+        System.out.println("Nome: " + nome);
+        System.out.println("Preço: R$" + preco);
+        System.out.println("Número de Faixas: " + numeroFaixas);
+        System.out.println();
     }
 }
 
-public class Empregado extends Pessoa {
-    private double salario;
-    private String matricula;
+class DVD {
+    private String nome;
+    private double preco;
+    private int duracao;
 
-    public Empregado(String nome, int idade, String sexo, double salario, String matricula) {
-        super(nome, idade, sexo);
-        this.salario = salario;
-        this.matricula = matricula;
+    public DVD(String nome, double preco, int duracao) {
+        this.nome = nome;
+        this.preco = preco;
+        this.duracao = duracao;
     }
 
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
-    public double valorInss() {
-        return salario * 0.11;
-    }
-
-    public String toString() {
-        return "Empregado{" +
-                "nome='" + getNome() + '\'' +
-                ", idade=" + getIdade() +
-                ", sexo='" + getSexo() + '\'' +
-                ", salario=" + salario +
-                ", matricula='" + matricula + '\'' +
-                '}';
+    public void imprimirDetalhes() {
+        System.out.println("DVD:");
+        System.out.println("Nome: " + nome);
+        System.out.println("Preço: R$" + preco);
+        System.out.println("Duração: " + duracao + " minutos");
+        System.out.println();
     }
 }
 
-public class Cliente extends Pessoa {
-    private double valorDivida;
+public class Loja {
+    public static void main(String[] args) {
+        Livro livro = new Livro("Dom Quixote", 39.90, "Miguel de Cervantes");
+        CD cd = new CD("Thriller", 29.99, 9);
+        DVD dvd = new DVD("O Senhor dos Anéis: A Sociedade do Anel", 49.90, 178);
 
-    public Cliente(String nome, int idade, String sexo, double valorDivida) {
-        super(nome, idade, sexo);
-        this.valorDivida = valorDivida;
-    }
-
-    public double getValorDivida() {
-        return valorDivida;
-    }
-
-    public void setValorDivida(double valorDivida) {
-        this.valorDivida = valorDivida;
-    }
-
-    public String toString() {
-        return "Cliente{" +
-                "nome='" + getNome() + '\'' +
-                ", idade=" + getIdade() +
-                ", sexo='" + getSexo() + '\'' +
-                ", valorDivida=" + valorDivida +
-                '}';
+        livro.imprimirDetalhes();
+        cd.imprimirDetalhes();
+        dvd.imprimirDetalhes();
     }
 }
-
-public class Gerente extends Empregado {
-    private String nomeGerencia;
-
-    public Gerente(String nome, int idade, String sexo, double salario, String matricula, String nomeGerencia) {
-        super(nome, idade, sexo, salario, matricula);
-        this.nomeGerencia = nomeGerencia;
-    }
-
-    public String getNomeGerencia() {
-        return nomeGerencia;
-    }
-
-    public void setNomeGerencia(String nomeGerencia) {
-        this.nomeGerencia = nomeGerencia;
-    }
-
-    public String toString() {
-        return "Gerente{" +
-                "nome='" + getNome() + '\'' +
-                ", idade=" + getIdade() +
-                ", sexo='" + getSexo() + '\'' +
-                ", salario=" + getSal
-    }

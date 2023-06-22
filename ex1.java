@@ -1,83 +1,43 @@
-public class Animal {
-    
+import java.time.LocalDate;
+import java.time.Period;
+
+class Pessoa {
     private String nome;
-    private double peso;
+    private int diaNascimento;
+    private int mesNascimento;
+    private int anoNascimento;
+    private int idade;
 
-    public Animal(String nome, double peso) {
+    public Pessoa(String nome, int diaNascimento, int mesNascimento, int anoNascimento) {
         this.nome = nome;
-        this.peso = peso;
+        this.diaNascimento = diaNascimento;
+        this.mesNascimento = mesNascimento;
+        this.anoNascimento = anoNascimento;
+        calculaIdade(LocalDate.now());
     }
 
-    public String getNome() {
-        return nome;
+    private void calculaIdade(LocalDate dataAtual) {
+        LocalDate dataNascimento = LocalDate.of(anoNascimento, mesNascimento, diaNascimento);
+        Period periodo = Period.between(dataNascimento, dataAtual);
+        this.idade = periodo.getYears();
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public int informaIdade() {
+        return idade;
     }
 
-    public double getPeso() {
-        return peso;
-    }
-
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
-
+    @Override
     public String toString() {
-        return "Animal{" +
-                "nome='" + nome + '\'' +
-                ", peso=" + peso +
-                '}';
+        return "Nome: " + nome + "\nData de Nascimento: " + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + "\nIdade: " + idade;
     }
 }
 
-public class Peixe extends Animal {
-    private String tipoHabitat;
+public class Main {
+    public static void main(String[] args) {
+        Pessoa einstein = new Pessoa("Albert Einstein", 14, 3, 1879);
+        Pessoa newton = new Pessoa("Isaac Newton", 4, 1, 1643);
 
-    public Peixe(String nome, double peso, String tipoHabitat) {
-        super(nome, peso);
-        this.tipoHabitat = tipoHabitat;
-    }
-
-    public String getTipoHabitat() {
-        return tipoHabitat;
-    }
-
-    public void setTipoHabitat(String tipoHabitat) {
-        this.tipoHabitat = tipoHabitat;
-    }
-
-    public String toString() {
-        return "Peixe{" +
-                "nome='" + getNome() + '\'' +
-                ", peso=" + getPeso() +
-                ", tipoHabitat='" + tipoHabitat + '\'' +
-                '}';
-    }
-}
-
-public class Cachorro extends Animal {
-    private String raca;
-
-    public Cachorro(String nome, double peso, String raca) {
-        super(nome, peso);
-        this.raca = raca;
-    }
-
-    public String getRaca() {
-        return raca;
-    }
-
-    public void setRaca(String raca) {
-        this.raca = raca;
-    }
-
-    public String toString() {
-        return "Cachorro{" +
-                "nome='" + getNome() + '\'' +
-                ", peso=" + getPeso() +
-                ", raca='" + raca + '\'' +
-                '}';
+        System.out.println("Albert Einstein:\n" + einstein);
+        System.out.println("\nIsaac Newton:\n" + newton);
     }
 }

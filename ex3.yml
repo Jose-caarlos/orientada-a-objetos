@@ -1,0 +1,13 @@
+Classe: Conta
+
+Atributos:
+- nomeTitular: String
+- numero: int
+- agencia: String
+- saldo: double
+- dataAbertura: String
+
+Métodos:
++ saca(valor: double): void
++ deposita(valor: double): void
++ calculaRendimento(): double
